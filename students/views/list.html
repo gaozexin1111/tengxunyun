@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生列表</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<form class="form-inline add" method="post">
+    姓名:<input type="text" class="info" name="name">
+    班级:<input type="text" class="info" name="classes">
+    年龄:<input type="text" class="info" name="age">
+    <input type="button" class="btn-default" value="提交" name="add">
+</form>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>班级</th>
+        <th>年龄</th>
+        <th>操作</th>
+    </tr>
+    <% message.forEach(function(item){ %>
+        <tr index="<%= item['id'] %>">
+            <td name="id"><%= item["id"] %></td>
+            <td name="name"><%= item["name"] %></td>
+            <td name="classes"><%= item["class"] %></td>
+            <td name="age"><%= item["age"] %></td>
+            <td>
+                <button class="btn btn-info del" id="<%= item['id'] %>">删除</button>
+                <button class="btn btn-info edit" id="<%= item['id'] %>">修改</button>
+                <a href="/editShow?id=<%= item['id'] %>">编辑修改</a>
+
+            </td>
+        </tr>
+    <% }) %>
+</table>
+<style>
+    .editBox{
+        width: 200px;
+        height: 200px;
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: rgba(0,0,0,0.5);
+    }
+</style>
+<div class="editBox">
+    <form method="post" class="editForm">
+        姓名:<input type="text" class="info" name="name">
+        <br>
+        班级:<input type="text" class="info" name="classes">
+        <br>
+        年龄:<input type="text" class="info" name="age">
+        <br>
+        <input type="hidden" name="id">
+        <input type="button" class="btn-default" value="提交" name="edition">
+    </form>
+
+</div>
+
+
+<script src="/js/index.js"></script>
+
+</body>
+</html>

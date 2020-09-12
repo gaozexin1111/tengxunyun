@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<form method="post" name="update">
+    姓名:<input type="text" class="info" name="name" value="<%= student.name %>" >
+    <br>
+    班级:<input type="text" class="info" name="class" value="<%= student.class %>">
+    <br>
+    年龄:<input type="text" class="info" name="age" value="<%= student.age %>">
+    <br>
+    <input type="hidden" name="id" value="<%= student.id %>">
+    <input type="button" class="btn-default" value="提交" name="edition">
+</form>
+<script src="/js/update.js"></script>
+</body>
+</html>
